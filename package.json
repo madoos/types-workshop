@@ -5,7 +5,11 @@
   "repository": {
     "url": "https://github.com/madoos/types-workshop"
   },
-  "author": "Maurice Domínguez",
+  "author": {
+    "name": "kairos DS",
+    "email": "campus-app@kairosds.com",
+    "url": "https://www.kairosds.com/"
+  },
   "bin": {
     "es6-types": "./bin/es6-types"
   },
@@ -19,6 +23,41 @@
   },
   "license": "MIT",
   "scripts": {
-    "dev": "./bin/es6-types"
+    "dev": "./bin/es6-types",
+    "prepublishOnly": "nsp check",
+    "pretest": "eslint .",
+    "precommit": "lint-staged",
+    "test": "jest --coverage",
+    "commitmsg": "commitlint -e $GIT_PARAMS",
+    "changelog":
+      "conventional-changelog -p eslint -i CHANGELOG.md -s -r 0 && git add CHANGELOG.md",
+    "serve:coverage": "http-server coverage/ -o",
+    "test:coverage": "npm test"
+  },
+  "homepage": "https://www.kairosds.com/",
+  "devDependencies": {
+    "@commitlint/cli": "^6.1.3",
+    "@commitlint/config-conventional": "^6.1.3",
+    "conventional-changelog-cli": "^1.3.21",
+    "eslint": "^4.19.1",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-plugin-prettier": "^2.6.0",
+    "prettier-eslint-cli": "^4.7.1",
+    "http-server": "^0.11.1",
+    "lint-staged": "^6.1.1",
+    "nsp": "^2.8.0",
+    "jest": "^22.0.6",
+    "husky": "^0.14.3"
+  },
+  "lint-staged": {
+    "*.js": [
+      "prettier-eslint --single-quote --bracket-spacing true --print-width 80 --semi --write",
+      "eslint",
+      "git add"
+    ],
+    "*.json": ["prettier --write", "git add"]
+  },
+  "jest": {
+    "testEnvironment": "node"
   }
 }
