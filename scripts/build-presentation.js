@@ -13,13 +13,14 @@ const isMdFile = name => name.includes('.md')
 const folders = R.pipe(R.unary(fs.readdirSync), R.reject(isMdFile))
 
 const makeVerticalSliders = src => {
-    const slides = fs
-        .readdirSync(src)
+    const slides = fs.readdirSync(src)
+
+    const s = slides
         .map(R.concat(src + '/'))
         .map(R.unary(fs.createReadStream))
         .map(H)
 
-    const verticalSliders = R.intersperse(H.of(VERTICAL_SEPARATOR), slides)
+    const verticalSliders = R.intersperse(H.of(VERTICAL_SEPARATOR), s)
     return verticalSliders
 }
 

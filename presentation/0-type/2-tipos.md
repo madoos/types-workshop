@@ -1,1 +1,0 @@
-# seccion dos de tipos
