@@ -1,0 +1,24 @@
+{
+  "name": "madoos-es6-types",
+  "description": "Learn JavaScript Object types.",
+  "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/madoos/types-workshop"
+  },
+  "author": "Maurice Domínguez",
+  "bin": {
+    "es6-types": "./bin/es6-types"
+  },
+  "main": "./index.js",
+  "preferGlobal": true,
+  "dependencies": {
+    "colors": "^1.0.3",
+    "promise": "^7.1.1",
+    "diff": "^1.2.1",
+    "workshopper-adventure": "^6.0.3"
+  },
+  "license": "MIT",
+  "scripts": {
+    "dev": "./bin/es6-types"
+  }
+}

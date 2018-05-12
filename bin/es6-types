@@ -1,0 +1,4 @@
+#!/usr/bin/env node
+
+console.log(process.argv.slice(2))
+require("../index").execute(process.argv.slice(2))
