@@ -1,4 +1,4 @@
-# Objectos
+## Objectos
 
 --
 Los objetos son una colección de propiedades en donde los valores de las propiedades pueden ser de cualquier tipo y las propiedades solo pueden ser strings o símbolos

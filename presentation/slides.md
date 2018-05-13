@@ -1,4 +1,40 @@
-# Tipos de Datos
+## Tipos en es6
+
+Objetivo:
+
+* Entender los nuevos tipos de ES6
+* Hacer ejercicios prácticos para descubrir como facilitan algunas tareas
+* Entender como el uso correcto de los tipos mejora el rendimiento.
+
+--
+
+Preparar entorno:
+
+```bash
+npm i -g madoos-es6-types
+```
+
+Crear un directorio de trabajo:
+
+```bash
+mkdir es6-types
+cd es6-types
+```
+
+Obtener retos:
+
+```bash
+madoos-es6-types
+```
+
+Verificar resultados:
+
+```bash
+madoos-es6-types verify <FILE>
+```
+
+---
+## Tipos de Datos
 
 --
 
@@ -13,7 +49,7 @@
 * Proxy
 
 --
-# Tipos
+## Tipos
 
 --
 
@@ -23,7 +59,7 @@ Un tipo es un conjunto de carascteristicas que identifican el comportamiento de 
 
 --
 
-# Division de los tipos
+## Division de los tipos
 
 --
 **Primitivos:**
@@ -50,7 +86,7 @@ Un tipo es un conjunto de carascteristicas que identifican el comportamiento de 
 * Error
 
 ---
-# Objectos
+## Objectos
 
 --
 Los objetos son una colección de propiedades en donde los valores de las propiedades pueden ser de cualquier tipo y las propiedades solo pueden ser strings o símbolos
@@ -72,41 +108,7 @@ Los objetos son una colección de propiedades en donde los valores de las propie
 * Internal properties
 
 --
-## Challenge
-
---
-
-Implementa el método merge para todas las instancias de un objeto de tal forma que:
-
-```javascript
-const a = { a: "a" }
-const b = { b: "b" }
-const c = { c: "c" }
-
-a.merge(b).merge(c) // => { a: 'a', b: 'b', c: 'c'}
-```
-
---
-
-Solución:
-
-```javascript
-Object.prototype.merge = function(src) {
-  for (const key of Object.keys(src)) {
-    this[key] = src[key]
-  }
-  return this
-}
-
-const a = { a: "a" }
-const b = { b: "b" }
-const c = { c: "c" }
-
-a.merge(b).merge(c) // => { a: 'a', b: 'b', c: 'c'}
-```
-
---
-# Descriptores de propiedad
+## Descriptores de propiedad
 
 --
 
@@ -273,6 +275,40 @@ test.toUpperAll() // => {test: "TEST"}
 
 --
 
+--
+## Challenge
+
+--
+
+Implementa el método merge para todas las instancias de un objeto de tal forma que:
+
+```javascript
+const a = { a: "a" }
+const b = { b: "b" }
+const c = { c: "c" }
+
+a.merge(b).merge(c) // => { a: 'a', b: 'b', c: 'c'}
+```
+
+--
+
+Solución:
+
+```javascript
+Object.prototype.merge = function(src) {
+  for (const key of Object.keys(src)) {
+    this[key] = src[key]
+  }
+  return this
+}
+
+const a = { a: "a" }
+const b = { b: "b" }
+const c = { c: "c" }
+
+a.merge(b).merge(c) // => { a: 'a', b: 'b', c: 'c'}
+```
+
 ---
 ## Challenge
 
@@ -400,7 +436,7 @@ user.printName() //=> "Sonia"
 ![picture](http://2.bp.blogspot.com/-wVbdTdZg2AQ/UYOFCVy00ZI/AAAAAAAAbqU/D16Pk_PnL_Q/s1600/mapsmania.gif)
 
 ---
-# Challenge
+## Challenge
 
 --
 
@@ -418,7 +454,32 @@ const uniqueNumbers = unique(numbers)
 ```
 
 --
-# set 2
+
+Solución
+
+```javascript
+function unique(numbers) {
+  return numbers.filter(function(elem, pos, arr) {
+    return arr.indexOf(elem) == pos
+  })
+}
+```
+
+```javascript
+function unique(numbers) {
+  return Array.from(new Set(numbers))
+}
+```
+
+--
+## set
+
+El objeto Set te permite almacenar valores únicos de cualquier tipo, incluso valores primitivos u objetos de referencia.
+
+```javascript
+new Set([1, 2, 3])
+new Set([{}, new Map(), []])
+```
 
 --
 # set 3

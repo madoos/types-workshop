@@ -1,4 +1,4 @@
-# Tipos
+## Tipos
 
 --
 
@@ -8,7 +8,7 @@ Un tipo es un conjunto de carascteristicas que identifican el comportamiento de 
 
 --
 
-# Division de los tipos
+## Division de los tipos
 
 --
 **Primitivos:**

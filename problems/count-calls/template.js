@@ -1,5 +1,5 @@
 const reporter = {} /* your implementation */
-const users = [{ name : 'Ana' }, { name : 'Juan' }, { name : 'Eric' }]
+const users = [{ name : 'Ana' }, { name : 'Eric' }]
 
 function showName(user) {
     console.log(user.name)
@@ -10,7 +10,6 @@ function showName(user) {
 showName(users[0])
 showName(users[0])
 showName(users[1])
-showName(users[2])
 
-const calledWithAna /* your implementation */ = 2
+const calledWithAna /* your implementation */ = 0
 console.log(calledWithAna)

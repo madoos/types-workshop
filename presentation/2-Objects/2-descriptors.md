@@ -1,4 +1,4 @@
-# Descriptores de propiedad
+## Descriptores de propiedad
 
 --
 

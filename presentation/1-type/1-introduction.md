@@ -1,4 +1,4 @@
-# Tipos de Datos
+## Tipos de Datos
 
 --
 
