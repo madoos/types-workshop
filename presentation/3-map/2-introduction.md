@@ -75,7 +75,3 @@ const user {
 
 user.printName() //=> "Sonia"
 ```
-
---
-
-![picture](http://2.bp.blogspot.com/-wVbdTdZg2AQ/UYOFCVy00ZI/AAAAAAAAbqU/D16Pk_PnL_Q/s1600/mapsmania.gif)

@@ -254,7 +254,7 @@ paco.nameToUpper() // => "PACO"
 ![picture](https://uploads.toptal.io/blog/image/392/toptal-blog-image-1399822383211.png)
 --
 
-# Extendiendo prototipos nativos
+## Extendiendo prototipos nativos
 
 --
 
@@ -431,10 +431,6 @@ const user {
 user.printName() //=> "Sonia"
 ```
 
---
-
-![picture](http://2.bp.blogspot.com/-wVbdTdZg2AQ/UYOFCVy00ZI/AAAAAAAAbqU/D16Pk_PnL_Q/s1600/mapsmania.gif)
-
 ---
 ## Challenge
 
@@ -482,6 +478,162 @@ new Set([{}, new Map(), []])
 ```
 
 --
-# set 3
+
+## Métodos y propiedades
+
+```javascript
+Set.prototype.constructor
+Set.prototype.size
+
+Set.prototype.add(value)
+Set.prototype.clear()
+Set.prototype.delete(value)
+Set.prototype.entries()
+Set.prototype.forEach(callbackFn[, thisArg])
+Set.prototype.has(value)
+Set.prototype.keys()
+Set.prototype.values()
+Set.prototype[@@iterator]()
+```
+
+--
+## Set vs Array
+
+![picture](https://cdn-images-1.medium.com/max/800/1*ImM6dhwekslUYwg5cX74AQ.png)
+
+--
+
+En la mayoría de los idiomas, los Set tienen un claro y claro caso de uso: operaciones rápidas de unión, intersección y diferencia.
+
+En JavaScript estas operaciones no se definen fácilmente
+
+--
+
+Sin las operaciones de conjuntos comunes definidas, JavaScript Set () puede verse como un contenedor glorificado que solo almacena elementos únicos. Cuando pones un elemento repetido, en realidad reemplaza al existente.
+
+--
+
+Cuando tenemos una gran cantidad de elementos set no empeora al añadir items.
+
+--
+
+Presencia
+
+```javascript
+set1.has(5)
+array1.indexOf(5)
+/*
+Set.has() es más rápido que Array.indexOf() incluso para matrices pequeñas.
+La diferencia de ejecución aumenta a medida que aumenta el tamaño de los contenedores.
+
+// size = 1000
+// SET:  21.014999999999418 ARRAY:  54.00500000000102
+// size = 10000
+// SET:  17.44499999999971 ARRAY:  398.505000000001
+// size = 100000
+// SET:  19.770000000004075 ARRAY:  3779.524999999994
+*/
+```
+
+--
+
+Velocidad de inserción
+
+```javascript
+set1.add(5)
+array1.push(5)
+/*
+Ah! Las matrices son mucho más rápidas (5x) en inserción que Sets. 
+Tenga en cuenta que la velocidad de inserción crece linealmente en Arrays y de forma no lineal en Sets:
+
+// ammount = 100000;
+// Array.push in 4.054999999993015ms; Set.add in 20.915000000037253ms;
+// ammount = 1000000;
+// Array.push in 17.175000000046566ms; Set.add in 417.03999999992084ms;
+// ^ ~4x more than prev.               ^ ~20x more than prev.
+// ammount = 10000000;
+// Array.push in 349.8299999999581ms; Set.add in 3902.625ms;
+// ^ ~20x more than prev.             ^ ~10x more than prev.
+*/
+```
+
+--
+
+Velocidad de iteración
+
+Los valores secuenciales del Array son más rápidos de iterar que los valores de Set (que se repiten en el orden de inserción).
+
+```javascript
+let sum = 0
+
+for (let item of array1) {
+  // <- here
+  sum += item
+}
+
+for (let item of set1) {
+  // <- here
+  sum += item
+}
+
+// ammount = 100000;
+// Array.for in 4.44999999999709ms; Set.for in 9.239999999997963ms;
+// ammount = 1000000;
+// Array.for in 9.044999999998254ms; Set.for in 55.14499999998952ms;
+// ammount = 10000000;
+// Array.for in 74.47000000000116ms; Set.for in 180.13999999999942ms;
+```
+
+--
+
+Operaciones de conjunto
+
+Unión
+
+```javascript
+const union = new Set([...set1, ...set2])
+```
+
+Diferencia
+
+```javascript
+const diff = new Set([...set1].filter(x => !set2.has(x)))
+```
+
+Intersección
+
+```javascript
+const intersected = new Set([...set1].filter(x => set2.has(x)))
+```
+
+--
+Cuándo usar Set?
+
+```javascript
+const usersCreated = new Set()
+
+class User {
+  constructor() {
+    usersCreated.add(this)
+  }
+
+  static instancesCreated() {
+    return usersCreated
+  }
+}
+
+const created = User.instancesCreated().size
+```
+
+--
+## Conclusión
+
+--
+
+* Set cuando importan valores únicos
+* Set.has es mucho más rápido que Array.indexOf
+* Array.push es mucho más rápido que Set.add
+* Las matrices son más rápidas para iterar secuencialmente
+* Unión, Diferencia, Intersección son fáciles de implementar con Set
 
 ---

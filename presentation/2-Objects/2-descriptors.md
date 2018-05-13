@@ -144,7 +144,7 @@ paco.nameToUpper() // => "PACO"
 ![picture](https://uploads.toptal.io/blog/image/392/toptal-blog-image-1399822383211.png)
 --
 
-# Extendiendo prototipos nativos
+## Extendiendo prototipos nativos
 
 --
 
