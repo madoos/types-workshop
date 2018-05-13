@@ -72,6 +72,40 @@ Los objetos son una colección de propiedades en donde los valores de las propie
 * Internal properties
 
 --
+## Challenge
+
+--
+
+Implementa el método merge para todas las instancias de un objeto de tal forma que:
+
+```javascript
+const a = { a: "a" }
+const b = { b: "b" }
+const c = { c: "c" }
+
+a.merge(b).merge(c) // => { a: 'a', b: 'b', c: 'c'}
+```
+
+--
+
+Solución:
+
+```javascript
+Object.prototype.merge = function(src) {
+  for (const key of Object.keys(src)) {
+    this[key] = src[key]
+  }
+  return this
+}
+
+const a = { a: "a" }
+const b = { b: "b" }
+const c = { c: "c" }
+
+a.merge(b).merge(c) // => { a: 'a', b: 'b', c: 'c'}
+```
+
+--
 # Descriptores de propiedad
 
 --
@@ -239,41 +273,7 @@ test.toUpperAll() // => {test: "TEST"}
 
 --
 
-## Challenge
-
---
-
-Implementa el método merge para todas las instancias de un objeto de tal forma que:
-
-```javascript
-const a = { a: "a" }
-const b = { b: "b" }
-const c = { c: "c" }
-
-a.merge(b).merge(c) // => { a: 'a', b: 'b', c: 'c'}
-```
-
---
-
-Solución:
-
-```javascript
-Object.prototype.merge = function(src) {
-  for (const key of Object.keys(src)) {
-    this[key] = src[key]
-  }
-  return this
-}
-
-const a = { a: "a" }
-const b = { b: "b" }
-const c = { c: "c" }
-
-a.merge(b).merge(c) // => { a: 'a', b: 'b', c: 'c'}
-```
-
 ---
-
 ## Challenge
 
 --
@@ -317,7 +317,6 @@ const calledWithAna = reporter.get(users[0]) // => 2
 ```
 
 --
-
 ## Maps
 
 --
@@ -399,3 +398,14 @@ user.printName() //=> "Sonia"
 --
 
 ![picture](http://2.bp.blogspot.com/-wVbdTdZg2AQ/UYOFCVy00ZI/AAAAAAAAbqU/D16Pk_PnL_Q/s1600/mapsmania.gif)
+
+---
+# set 1
+
+--
+# set 2
+
+--
+# set 3
+
+---

@@ -1,4 +1,3 @@
-const H = require('highland')
 const R = require('ramda')
 const fs = require('fs')
 const path = require('path')
@@ -14,24 +13,24 @@ const folders = R.pipe(R.unary(fs.readdirSync), R.reject(isMdFile))
 
 const makeVerticalSliders = src => {
     const slides = fs.readdirSync(src)
-
-    const s = slides
+    const verticalSliders = slides
         .map(R.concat(src + '/'))
-        .map(R.unary(fs.createReadStream))
-        .map(H)
+        .map(R.unary(fs.readFileSync))
 
-    const verticalSliders = R.intersperse(H.of(VERTICAL_SEPARATOR), s)
-    return verticalSliders
+    return R.intersperse(VERTICAL_SEPARATOR, verticalSliders)
 }
 
 const makeSliders = (src, dest) => {
+    const mainSlider = fs.createWriteStream(dest)
     const horizontalSliders = folders(src).map(R.concat(src))
     const verticalSliders = R.map(makeVerticalSliders, horizontalSliders)
-    const sliders = R.intersperse(H.of(SEPARATOR), verticalSliders)
 
-    return H(sliders)
-        .flatten()
-        .pipe(fs.createWriteStream(dest))
+    for (const content of verticalSliders) {
+        mainSlider.write(content.join(''))
+        mainSlider.write(SEPARATOR)
+    }
+
+    mainSlider.end()
 }
 
 makeSliders(SRC_PATH, SLIDES_PATH)
