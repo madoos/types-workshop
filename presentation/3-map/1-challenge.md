@@ -1,7 +1,15 @@
 ## Challenge
 
+count calls
+
+```bash
+# Ejecutar en el terminal: madoos-es6-types
+# Seleccionar COUNT CALLS
+# Seguir instrucciones
+```
+
 --
-Cuenta veces ha sido llamada una fucinón con el mismo argumento tal que:
+Cuenta veces ha sido llamada una fucinón con el mismo argumento:
 
 ```javascript
 const reporter = /* your implementation */

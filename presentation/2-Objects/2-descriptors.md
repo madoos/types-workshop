@@ -162,5 +162,3 @@ Object.prototype.toUpperAll = function() {
 const test = { test: "test" }
 test.toUpperAll() // => {test: "TEST"}
 ```
-
---

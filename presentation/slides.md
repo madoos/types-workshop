@@ -274,13 +274,18 @@ test.toUpperAll() // => {test: "TEST"}
 ```
 
 --
-
---
 ## Challenge
 
---
+merge objects
 
-Implementa el método merge para todas las instancias de un objeto de tal forma que:
+```bash
+# Ejecutar en el terminal: madoos-es6-types
+# Seleccionar: OBJECTS
+# Seguir instrucciones
+```
+
+--
+Implementa el método merge para todas las instancias de un objeto:
 
 ```javascript
 const a = { a: "a" }
@@ -312,8 +317,16 @@ a.merge(b).merge(c) // => { a: 'a', b: 'b', c: 'c'}
 ---
 ## Challenge
 
+count calls
+
+```bash
+# Ejecutar en el terminal: madoos-es6-types
+# Seleccionar COUNT CALLS
+# Seguir instrucciones
+```
+
 --
-Cuenta veces ha sido llamada una fucinón con el mismo argumento tal que:
+Cuenta veces ha sido llamada una fucinón con el mismo argumento:
 
 ```javascript
 const reporter = /* your implementation */
@@ -434,8 +447,15 @@ user.printName() //=> "Sonia"
 ---
 ## Challenge
 
---
+unique numbers
 
+```bash
+# Ejecutar en el terminal: madoos-es6-types
+# Seleccionar UNIQUE NUMBERS
+# Seguir instrucciones
+```
+
+--
 Implementar una funcion que retorne los elementos únicos
 
 ```javascript
@@ -635,5 +655,97 @@ const created = User.instancesCreated().size
 * Array.push es mucho más rápido que Set.add
 * Las matrices son más rápidas para iterar secuencialmente
 * Unión, Diferencia, Intersección son fáciles de implementar con Set
+
+---
+## Challenge
+
+memory leak
+
+```bash
+# Ejecutar en el terminal: madoos-es6-types
+# Seleccionar MEMORY LEAK
+# Seguir instrucciones
+```
+
+--
+
+En el reto “count calls” hemos encontrado una forma de contar las llamadas únicas.
+
+La solución ha creado un terrible memory leak, tu trabajo es encontrarlo antes que el servidor muera!!
+
+--
+
+Solucíon:
+
+```javascript
+const users = new WeakSet()
+let __users__ = []
+
+const addUser = () => {
+  __users__.push({
+    name: Math.random()
+      .toString(36)
+      .substring(7)
+  })
+
+  users.add(__users__[__users__.length - 1])
+}
+
+const clearUsers = () => {
+  __users__ = []
+}
+
+setInterval(addUser, 250)
+setInterval(clearUsers, 1000)
+setTimeout(() => process.exit(0), 4000)
+console.log(true)
+```
+
+--
+## WeakSet
+
+--
+
+Los objetos WeakSet son colecciones de objetos. Un objecto en WeakSet solo puede ser agregado una vez; Esto quiere decir que es unico en la coleccion WeakSet.
+
+--
+
+Las principales diferencias con el objeto Set son:
+
+* A diferencia de Sets, WeakSets son solamente colecciones de objetos y no contienen valores arbitrarios de cualquier otro tipo.
+
+* El WeakSet es débil: Las referencias a objetos en la colección se mantienen débilmente.. Si ya no hay otra referencia a un objeto almacenado en el WeakSet, ellos pueden ser removidos por el recolector de basura. Esto también significa que no hay ninguna lista de objetos almacenados en la colección. Los WeakSets no son enumerables.
+
+--
+
+Métodos y propiedades
+
+```javascript
+WeakSet.prototype.constructor
+
+WeakSet.prototype.add(value)
+WeakSet.prototype.delete(value)
+WeakSet.prototype.has(value)
+```
+
+--
+## WeakMap
+
+--
+
+Las claves de los WeakMaps solamente pueden ser del tipo Object. Los Primitive data types como claves no están permitidos (ej. un Symbol no pueden ser una clave de WeakMap).
+
+--
+
+## Métodos y propiedades
+
+```javascript
+WeakMap.prototype.constructor
+
+WeakMap.prototype.delete(key)
+WeakMap.prototype.get(key)
+WeakMap.prototype.has(key)
+WeakMap.prototype.set(key, value)
+```
 
 ---

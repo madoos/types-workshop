@@ -1,8 +1,15 @@
 ## Challenge
 
---
+merge objects
 
-Implementa el método merge para todas las instancias de un objeto de tal forma que:
+```bash
+# Ejecutar en el terminal: madoos-es6-types
+# Seleccionar: OBJECTS
+# Seguir instrucciones
+```
+
+--
+Implementa el método merge para todas las instancias de un objeto:
 
 ```javascript
 const a = { a: "a" }
