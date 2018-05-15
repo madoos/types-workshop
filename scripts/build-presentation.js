@@ -7,7 +7,7 @@ const EOL = require('os').EOL
 const SRC_PATH = path.join(__dirname, '../presentation/')
 const VERTICAL_SEPARATOR = `${EOL}${revealOpt.verticalSeparator}${EOL}`
 const SEPARATOR = `${EOL}${revealOpt.separator}${EOL}`
-const SLIDES_PATH = R.concat(SRC_PATH, 'slides.md')
+const SLIDES_PATH = path.join(__dirname, '../slides.md')
 const isMdFile = name => name.includes('.md')
 const folders = R.pipe(R.unary(fs.readdirSync), R.reject(isMdFile))
 
