@@ -16,7 +16,7 @@ La solución ha creado un terrible memory leak, tu trabajo es encontrarlo antes 
 
 --
 
-Solucíon:
+Solución:
 
 ```javascript
 const users = new WeakSet()

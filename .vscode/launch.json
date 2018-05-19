@@ -9,6 +9,12 @@
             "request": "launch",
             "name": "Iniciar programa",
             "program": "${workspaceFolder}/scripts/build-presentation.js"
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "time machine",
+            "program": "${workspaceFolder}/solutions/time-machine/index.js"
         }
     ]
 }

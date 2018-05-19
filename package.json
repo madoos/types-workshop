@@ -8,7 +8,7 @@
     },
     "author": {
         "name": "Maurice Domínguez",
-        "email": "maurice.ronet.dominguez.com"
+        "email": "maurice.ronet.dominguez@gmail.com"
     },
     "preferGlobal": true,
     "dependencies": {
@@ -27,8 +27,7 @@
         "watch": "watch 'npm run build' ./presentation",
         "build": "node ./scripts/build-presentation.js ",
         "presentation": "reveal-md -w --theme moon ./slides.md",
-        "changelog":
-            "conventional-changelog -p eslint -i CHANGELOG.md -s -r 0 && git add CHANGELOG.md"
+        "changelog": "conventional-changelog -p eslint -i CHANGELOG.md -s -r 0 && git add CHANGELOG.md"
     },
     "devDependencies": {
         "@commitlint/cli": "^6.1.3",
@@ -51,7 +50,10 @@
             "eslint",
             "git add"
         ],
-        "*.json": ["prettier --write", "git add"]
+        "*.json": [
+            "prettier --write",
+            "git add"
+        ]
     },
     "jest": {
         "testEnvironment": "node"
