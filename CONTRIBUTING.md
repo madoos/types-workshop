@@ -18,6 +18,7 @@ To analyze the results of the challenges the stdout or console.log is used.
 
 problem folder structure:
 
+```bash
 problems
 ++your-problem
 ++--index.js (copy the file)
@@ -25,3 +26,4 @@ problems
 ++--solution_es.md
 ++--template.js (this file will be copied to the working directory of the user of the cli
 )
+```
