@@ -1,6 +1,6 @@
 ## Challenge
 
-Implementar una funcion que retorne los elementos únicos
+Implementar una función que retorne los elementos únicos
 
 ```javascript
 const numbers = [1, 1, 2, 2, 3, 3, 4, 4]
