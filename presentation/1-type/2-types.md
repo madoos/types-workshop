@@ -2,13 +2,13 @@
 
 --
 
-¿Que es un tipo?
+¿Qué es un tipo?
 
-Un tipo es un conjunto de carascteristicas que identifican el comportamiento de un valor en particular.
+Un tipo es un conjunto de características que identifican el comportamiento de un valor en particular.
 
 --
 
-## Division de los tipos
+## División de los tipos
 
 --
 **Primitivos:**

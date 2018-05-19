@@ -3,7 +3,7 @@
 Objetivo:
 
 * Entender los nuevos tipos de ES6
-* Hacer ejercicios prácticos para descubrir como facilitan algunas tareas
+* Hacer ejercicios prácticos para descubrir cómo facilitan algunas tareas
 * Entender como el uso correcto de los tipos mejora el rendimiento.
 
 --
@@ -53,13 +53,13 @@ madoos-es6-types verify <FILE>
 
 --
 
-¿Que es un tipo?
+¿Qué es un tipo?
 
-Un tipo es un conjunto de carascteristicas que identifican el comportamiento de un valor en particular.
+Un tipo es un conjunto de características que identifican el comportamiento de un valor en particular.
 
 --
 
-## Division de los tipos
+## División de los tipos
 
 --
 **Primitivos:**
@@ -86,7 +86,7 @@ Un tipo es un conjunto de carascteristicas que identifican el comportamiento de 
 * Error
 
 ---
-## Objectos
+## Objetos
 
 --
 Los objetos son una colección de propiedades en donde los valores de las propiedades pueden ser de cualquier tipo y las propiedades solo pueden ser strings o símbolos
@@ -101,7 +101,7 @@ Los objetos son una colección de propiedades en donde los valores de las propie
 
 --
 
-## Tipos de propiedads
+## Tipos de propiedades
 
 * Data properties
 * Accessor properties
@@ -326,7 +326,7 @@ count calls
 ```
 
 --
-Cuenta veces ha sido llamada una fucinón con el mismo argumento:
+Cuenta veces ha sido llamada una función con el mismo argumento:
 
 ```javascript
 const reporter = /* your implementation */
@@ -395,11 +395,11 @@ Map.prototype[@@iterator]()
 ```
 
 --
-Objectos
+Objetos
 
 * Las claves de son Strings y Symbols
 * El tamaño se determina manualmente
-* Para iterar es necesario primiero obtener sus claves
+* Para iterar es necesario primero obtener sus claves
 * No itera en orden
 
 Mapas
@@ -443,6 +443,10 @@ const user {
 
 user.printName() //=> "Sonia"
 ```
+
+--
+
+conclusión
 
 ---
 ## Challenge
@@ -706,7 +710,7 @@ console.log(true)
 
 --
 
-Los objetos WeakSet son colecciones de objetos. Un objecto en WeakSet solo puede ser agregado una vez; Esto quiere decir que es unico en la coleccion WeakSet.
+Los objetos WeakSet son colecciones de objetos. Un objeto en WeakSet solo puede ser agregado una vez; Esto quiere decir que es único en la colección WeakSet.
 
 --
 
@@ -747,6 +751,10 @@ WeakMap.prototype.get(key)
 WeakMap.prototype.has(key)
 WeakMap.prototype.set(key, value)
 ```
+
+--
+
+conclusión
 
 ---
 ## Challenge
@@ -874,9 +882,9 @@ handler.ownKeys() // Un trap para Object.getOwnPropertyNames y Object.getOwnProp
 ```
 
 --
-## Objecto Reflect
+## Objeto Reflect
 
-Reflect es un objecto incorporado que proporciona metodos para interceptar operaciones de javascript. Los métodos son los mismos que los de proxy handlers. Reflect no es un objeto de funciones y por lo tanto no es constructible.
+Reflect es un objeto incorporado que proporciona métodos para interceptar operaciones de javascript. Los métodos son los mismos que los de proxy handlers. Reflect no es un objeto de funciones y por lo tanto no es constructible.
 
 --
 
@@ -904,6 +912,9 @@ El objeto Reflect proporciona funciones estáticas con los mismos nombres de los
 * Es un lugar más natural para muchos de los métodos de reflexión definidos previamente en Object.
 * Un hogar natural para proxies, evitando la necesidad de un enlace Proxy global.
 * Los métodos en este módulo se correlacionan uno a uno con los traps de Proxy. Los controladores proxy necesitan estos métodos para reenviar convenientemente las operaciones.
+
+--
+conclusión
 
 ---
 ## Challenge
@@ -960,5 +971,103 @@ class Duple {
   }
 }
 ```
+
+--
+## Symbol
+
+Los Symbols son tipo de dato único que es inmutable y puede ser utilizado como identificador de propiedades de objeto. Estos son como los tipos Number, String, y Boolean primitivos.
+
+```javascript
+const sym1 = Symbol()
+const sym2 = Symbol("foo")
+const sym3 = Symbol("foo")
+
+Symbol("foo") === Symbol("foo") // false
+```
+
+--
+
+Symbol es un tipo de datos cuyos valores son únicos e immutables. Dichos valores pueden ser utilizados como identificadores (claves) de las propiedades de los objetos. Cada valor del tipo Symbol tiene asociado un valor del tipo String o Undefined que sirve únicamente como descripción del símbolo.
+
+```javascript
+const inmutableRef = Symbol("some description")
+```
+
+--
+
+### Símbolos compartidos en el registro global de símbolos
+
+La sintaxis anteriormente descrita que usa la función Symbol() no creara un símbolo global disponible para toda el código base. Para crear símmbolos accesibles a través de los archivos incluso a través de realms (cada unbo de los cuales tiene su propio global scope) es necesario utilizar los métodos Symbol.for() y Symbol.keyFor() para crear y acceder a los símbolos desde un registro global de valores del tipo Symbol.
+
+```javascript
+const sym1 = Symbol.for("SYM_1")
+const key = Symbol.keyFor(sym1) // "SYM_1"
+```
+
+--
+
+## característica
+
+* Los símbolos son completamente únicos
+* Los símbolos se pueden usar como claves de Objeto
+* Los Símbolos no aparecen en un Objeto usando "for in" y Object.getOwnPropertyNamesObject
+
+--
+
+## símbolos son buenos para:
+
+* Los símbolos nunca entrarán en conflicto con las claves de objetos.
+* Los símbolos no se pueden leer utilizando las herramientas de reflexión
+* Los símbolos no son propiedades privadas
+* Los símbolos no son coercibles en primitivos
+
+--
+
+## ¿Para qué son realmente buenos los símbolos?
+
+* Como un valor único en el que probablemente normalmente usaría un String o Integer
+* Un lugar para poner valores de metadatos en un objeto
+* Dar a los desarrolladores la capacidad de agregar hooks a sus objetos, a través de su API
+
+--
+
+### Símbolos incorporados en JS
+
+--
+
+Símbolo de iteración:
+
+Los objetos que implementen la interfaz Iterable deben tener una propiedad que tenga como clave este símbolo. Dicha propiedad deb ser una función que devuelva un objeto que implemente la interfaz Iterator. Usado por for...of.
+
+```javascript
+Symbol.iterator
+```
+
+--
+
+Símbolos de expresiones regulares:
+
+```javascript
+Symbol.match // String.prototype.match()
+Symbol.replace // String.prototype.replace()
+Symbol.search // String.prototype.search()
+Symbol.split // String.prototype.split().
+```
+
+--
+
+Otros símbolos
+
+```javascript
+Symbol.hasInstance // instanceof.
+Symbol.isConcatSpreadable // Array.prototype.concat().
+Symbol.species
+Symbol.toPrimitive
+Symbol.toStringTag // Object.prototype.toString().
+```
+
+--
+
+conclusión
 
 ---

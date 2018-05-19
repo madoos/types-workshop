@@ -9,7 +9,7 @@ count calls
 ```
 
 --
-Cuenta veces ha sido llamada una fucinón con el mismo argumento:
+Cuenta veces ha sido llamada una función con el mismo argumento:
 
 ```javascript
 const reporter = /* your implementation */

@@ -1,4 +1,4 @@
-## Objectos
+## Objetos
 
 --
 Los objetos son una colección de propiedades en donde los valores de las propiedades pueden ser de cualquier tipo y las propiedades solo pueden ser strings o símbolos
@@ -13,7 +13,7 @@ Los objetos son una colección de propiedades en donde los valores de las propie
 
 --
 
-## Tipos de propiedads
+## Tipos de propiedades
 
 * Data properties
 * Accessor properties

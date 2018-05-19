@@ -1,6 +1,6 @@
-## Objecto Reflect
+## Objeto Reflect
 
-Reflect es un objecto incorporado que proporciona metodos para interceptar operaciones de javascript. Los métodos son los mismos que los de proxy handlers. Reflect no es un objeto de funciones y por lo tanto no es constructible.
+Reflect es un objeto incorporado que proporciona métodos para interceptar operaciones de javascript. Los métodos son los mismos que los de proxy handlers. Reflect no es un objeto de funciones y por lo tanto no es constructible.
 
 --
 
@@ -28,3 +28,6 @@ El objeto Reflect proporciona funciones estáticas con los mismos nombres de los
 * Es un lugar más natural para muchos de los métodos de reflexión definidos previamente en Object.
 * Un hogar natural para proxies, evitando la necesidad de un enlace Proxy global.
 * Los métodos en este módulo se correlacionan uno a uno con los traps de Proxy. Los controladores proxy necesitan estos métodos para reenviar convenientemente las operaciones.
+
+--
+conclusión

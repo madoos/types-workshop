@@ -3,7 +3,7 @@
 Objetivo:
 
 * Entender los nuevos tipos de ES6
-* Hacer ejercicios prácticos para descubrir como facilitan algunas tareas
+* Hacer ejercicios prácticos para descubrir cómo facilitan algunas tareas
 * Entender como el uso correcto de los tipos mejora el rendimiento.
 
 --

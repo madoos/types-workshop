@@ -27,11 +27,11 @@ Map.prototype[@@iterator]()
 ```
 
 --
-Objectos
+Objetos
 
 * Las claves de son Strings y Symbols
 * El tamaño se determina manualmente
-* Para iterar es necesario primiero obtener sus claves
+* Para iterar es necesario primero obtener sus claves
 * No itera en orden
 
 Mapas
@@ -75,3 +75,7 @@ const user {
 
 user.printName() //=> "Sonia"
 ```
+
+--
+
+conclusión

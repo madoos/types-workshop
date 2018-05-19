@@ -2,7 +2,7 @@
 
 --
 
-Los objetos WeakSet son colecciones de objetos. Un objecto en WeakSet solo puede ser agregado una vez; Esto quiere decir que es unico en la coleccion WeakSet.
+Los objetos WeakSet son colecciones de objetos. Un objeto en WeakSet solo puede ser agregado una vez; Esto quiere decir que es único en la colección WeakSet.
 
 --
 

@@ -16,3 +16,7 @@ WeakMap.prototype.get(key)
 WeakMap.prototype.has(key)
 WeakMap.prototype.set(key, value)
 ```
+
+--
+
+conclusión
