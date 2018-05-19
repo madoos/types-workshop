@@ -15,6 +15,12 @@
             "request": "launch",
             "name": "time machine",
             "program": "${workspaceFolder}/solutions/time-machine/index.js"
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "interoperability",
+            "program": "${workspaceFolder}/solutions/interoperability/index.js"
         }
     ]
 }
