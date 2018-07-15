@@ -10,6 +10,9 @@
         "name": "Maurice Domínguez",
         "email": "maurice.ronet.dominguez@gmail.com"
     },
+    "bin": {
+        "madoos-es6-types": "./bin/es6-types"
+    },
     "preferGlobal": true,
     "dependencies": {
         "colors": "^1.0.3",
